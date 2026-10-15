@@ -8,9 +8,10 @@ $tax_amount = $sub_total * $tax_rate;//税額
 $total = $sub_total + $tax_amount;//合計
 echo "商品名: " . $product_name;?><br><?php
 echo "単価: " . number_format($price) . "円";?><br><?php
-echo "小計: " . $quantity . "個"; ?><br><?php
+echo "数量: " . $quantity . "個"; ?><br><?php
+echo "小計: " . $sub_total . "円"; ?><br><?php
 echo "消費税: " . number_format($tax_amount) . "円"; ?><br><?php
-echo "単価: " . number_format($total) . "円";?><br><?php
+echo "合計金額: " . number_format($total) . "円";?><br><?php
 /*<?php
 const product = [
     ['name' => 'ノートパソコン' , 'price' => 80000]//品番絶対いると思うんだがどうなんだろ
