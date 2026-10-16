@@ -55,7 +55,7 @@ if ($input === true){
 <?php
 }
 $input_number = 2.5;
-while(!(is_float($input_number) || is_int($input_number))){
+while(!(is_float($input_number) || is_int($input_number))){ //問題は出ているみたいだけど問題なく動作しているのよね
     echo "文字列が入力されました。やりなおしてください";
     break; //仮入力だからあとでこのbreakなおす
 };
@@ -102,6 +102,7 @@ if (is_float($input_number) === true) {
     };
     echo "入力された数値は[<b>{$input_number_jge}</b>]です";
 }
+
 //没。switchのほうが早い
 /*if (is_string($input_number) === true){
     echo "指定されたものは文字列として認識されています。｛$input_number}";//whileがひつようっすな
@@ -133,11 +134,33 @@ if($input_number % 2 === 0)
         }
     }
 }
+    ctrl+shift Reload Window 変換候補が出なくなったら
 */
-?>
+$age = 25;
+$member = true;
+$student = false;
 
-<?php
+if($age >= 18 && $member){
+    echo "割引が適応されます。";
+}elseif($age >= 65 || $student){
+    echo "シニア・学生割引が適用されます。";
+}
 
-
+$bonus = [
+    ['name' => 'bonus_stage' , 'message' => 'ボーナスステージクリアボーナス: ' , 'point_score' => 50]
+];
+$skill = [
+    ['name' => 'hip_bat' , 'damage' => 30]
+];
+echo "<br>";
+$hit_point = 100;
+$hit_point += $bonus[0]['point_score'];
+echo $bonus[0]['message'] . $bonus[0]['point_score'] . "点  現在HP: " .  $hit_point . "点<br>";//第三世代ポケモンみたいにセリフ毎にとうろくしてつけるのも有り。
+$hit_point -= $skill[0]['damage'];
+echo 'クソったれは' . $skill[0]['damage'] . "のダメージを受けた<br>残りHP" . $hit_point . "点<br>";
+$hit_point *= 2;
+echo 'クソったれはチートを使った。残りHP:' . $hit_point . "点。<br><br>🏆️称号: ザコザコお兄さん❤の称号を手に入れた";
+$status = 'ザコザコお兄さん❤';
+echo "<br><br>最終HP $hit_point <br>称号: $status";
 
 ?>
