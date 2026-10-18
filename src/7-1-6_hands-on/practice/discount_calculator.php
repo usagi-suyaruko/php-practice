@@ -54,53 +54,58 @@ if ($input === true){
 
 <?php
 }
-$input_number = 2.5;
-while(!(is_float($input_number) || is_int($input_number))){ //問題は出ているみたいだけど問題なく動作しているのよね
+$input_number = "a";
+while(is_string($input_number)){ //問題は出ているみたいだけど問題なく動作しているのよね.あとが怖い
     echo "文字列が入力されました。やりなおしてください";
     break; //仮入力だからあとでこのbreakなおす
-};
-if (is_float($input_number) === true) {
-    $input_number2 = (int)(($input_number + 0.5)) % 2 + 1;
-    switch($input_number2){
+}
+    if (is_float($input_number)) {
+        $input_number2 = (int) (($input_number + 0.5)) % 2 + 1;
+        switch ($input_number2) {
+            case 1:
+                $input_number2_jge = "偶数";
+                break;
+            case 2:
+                $input_number2_jge = "奇数";
+                break;
+            default:
+                $input_number2_jge = "warning想定外の自体、小数点の判断時に、文字列を排除したうえで四捨五入後に%2+1が1と2以外を表示しています。通常このエラーは表示されません。";
+                break;
+        }
+        ;
+        $input_number3 = (int) ($input_number) % 2 + 1;
+        switch ($input_number3) {
+            case 1:
+                $input_number3_jge = "偶数";
+                break;
+            case 2:
+                $input_number3_jge = "奇数";
+                break;
+            default:
+                $input_number3_jge = "warning想定外の自体、小数点の判断時に、文字列を排除したうえで%2+1が1と2以外を表示しています。通常このエラーは表示されません。";
+                break;
+        }
+        ;
+        echo "小数点が入力されています。四捨五入された場合、[<b>{$input_number2_jge}</b>]、<br>しない出切り捨てた場合は[<b>{$input_number3_jge}</b>]になります。<br>どちらを選択されますか？";
+} else {
+    $input_number4 = (int) ($input_number) % 2 + 1;
+    switch ($input_number) {
         case 1:
-            $input_number2_jge = "偶数";
+            $input_number_jge4 = "偶数";
             break;
         case 2:
-            $input_number2_jge = "奇数";
+            $input_number_jge4 = "奇数";
             break;
         default:
-            $input_number2_jge = "warning想定外の自体、小数点の判断時に、文字列を排除したうえで四捨五入後に%2+1が1と2以外を表示しています。通常このエラーは表示されません。";
-            break;
-    };
-    $input_number3 = (int) ($input_number) % 2 + 1;
-    switch ($input_number3) {
-        case 1:
-            $input_number3_jge = "偶数";
-            break;
-        case 2:
-            $input_number3_jge = "奇数";
-            break;
-        default:
-            $input_number3_jge = "warning想定外の自体、小数点の判断時に、文字列を排除したうえで%2+1が1と2以外を表示しています。通常このエラーは表示されません。";
+            $input_number_jge4 = "warning想定外の自体、文字列と小数点を排除したうえで+1が1と2以外を表示しています。通常このエラーは表示されません。";
             break;
     }
     ;
-    echo "小数点が入力されています。四捨五入された場合、[<b>{$input_number2_jge}</b>]、<br>しない出切り捨てた場合は[<b>{$input_number3_jge}</b>]になります。<br>どちらを選択されますか？";
-}else
-{
-    $input_number = (int) $input_number + 1;
-    switch($input_number){
-        case 1:
-            $input_number_jge = "偶数";
-            break;
-        case 2:
-            $input_number_jge = "奇数";
-            break;
-        default:
-            $input_number_jge = "warning想定外の自体、文字列と小数点を排除したうえで+1が1と2以外を表示しています。通常このエラーは表示されません。";
-            break;
-    };
-    echo "入力された数値は[<b>{$input_number_jge}</b>]です";
+    if (is_string($input_number)) {
+        echo "<br>";
+    } else {
+        echo "入力された数値は[<b>{$input_number_jge4}</b>]です<br>";
+    }
 }
 
 //没。switchのほうが早い
@@ -160,7 +165,56 @@ $hit_point -= $skill[0]['damage'];
 echo 'クソったれは' . $skill[0]['damage'] . "のダメージを受けた<br>残りHP" . $hit_point . "点<br>";
 $hit_point *= 2;
 echo 'クソったれはチートを使った。残りHP:' . $hit_point . "点。<br><br>🏆️称号: ザコザコお兄さん❤の称号を手に入れた";
-$status = 'ザコザコお兄さん❤';
+$status = 'ザコザコお兄さん❤<br><br>';
 echo "<br><br>最終HP $hit_point <br>称号: $status";
 
+?>
+<?php
+//関数の定義
+function tae()
+{
+    echo "多英！大好きです！！！結婚して！！<br>";
+}
+
+//関数の呼び起こし
+tae();
+tae();
+//for(;;){tae();}
+?>
+<?php
+function fucking($name){
+    echo "<br><br>くたばれ、" . $name . "さん！";
+}
+
+fucking("魂魄妖夢");
+function add(int $a, int $b):int//戻り値はintでなくてはいけない、と宣言
+{
+    $sum = $a + $b;
+    return $sum; //sumは単に自分で決めた引数名
+}
+// 関数の戻り値を、変数 $result に代入する
+$result = add(3, 5);
+echo $result;
+echo add(10, 20);
+function testReturn()
+{
+    return "ここで処理は終わり" ."<br>";
+    echo "この行は実行されません";
+}
+echo "<br>" . 3 ."<br>";
+echo testReturn();
+echo "この文章の上が「ここで処理は終わり」という文だけなら成功しています";
+echo add(2, 2);//4(これは動的言語のため)
+//echo add(2, "ringo");
+function add_and_format(int $a, int $b): int//整数で返す
+{
+    $sum = $a + $b;
+    return /*"合計は: "*/$sum;
+}
+echo add_and_format(1, 5);
+function sayHello(string $name):void{
+    echo "こんにちは" . $name . "さん！！";
+    //returnを書かない
+}
+sayHello("鈴木")
 ?>
