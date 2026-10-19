@@ -216,5 +216,108 @@ function sayHello(string $name):void{
     echo "こんにちは" . $name . "さん！！";
     //returnを書かない
 }
-sayHello("鈴木")
+sayHello("鈴木");
+$age = 15;
+//もし、変数%ageが、18以上ならば
+if ($age >= 18){
+    echo "貴方は成人です。";
+}else{
+    echo "貴方は未成年です。";
+}
+//ifなんてCでもExcelでもさんざん使い倒したんだけど。そこまで理解深める必要があるのかは謎ではある
+$score = 85;
+$check_score = match (true) {//match の条件を指定して、戻り値がtrueのものの＝＞を探している
+    90 <= $score && $score < 100 => '評価はAです。',
+    80 <= $score && $score < 90 => '評価はBです。',
+    70 <= $score && $score < 80 => '評価はCです。',
+    default => '評価対象外',
+};
+echo $check_score;
+$signal = "red";
+switch(true){
+    case $signal === "red":
+        echo '止まれ';
+            break;
+    case $signal === "blue":
+        echo '進め';
+            break;
+    case $signal === "yellow":
+        echo '注意';
+        break;
+    default:
+        echo '何なんだお前は..';
+        break;
+}
+//動的言語はCみたいに数値だけ限定ということがないらしい
+echo "<br>";
+for ($i = 1; $i <=10 ; $i++){
+    //$iは別になんでもいい。単にfor i構文って言われているから見本として使われただけだと思う。宣言で初期値入れて、条件入れて処理が終わる毎に何をするかって決めている
+
+//for(変数初期化;条件;繰り返される毎回の要素)
+//{
+//echo"";1回繰り返される毎に繰り返される処理。
+//}
+    echo $i ."回目のビンタ<br>";
+}
+for ($i = 10; $i > 0 ; $i--){
+    echo $i . "...<br>";
+}
+echo 0 .  "<br>";
+$fruits = ["りんご","みかん","ばなな"];
+foreach ($fruits as $fruits){
+    echo $fruits . "はおいしい!<br>";
+}
+$score = [
+    "国語" => 80,
+    "数学" => 95,
+    "英語" => 72,
+];
+//キーを$subjectに、値を$score ニ代入してループ
+foreach ($score as $subject => $score){
+    echo $subject . "点数は: " . $score . "点です。<br>";//ゲームとかのデータ作ったら楽しそうだよね。演出も必要だからその処理とかも大変なんだけど、初代ポケモンとかだとその辺りデータ省略のためにSEで演出したよね。映像畑にいるからこそ気づくことだけど
+}
+for ($finger = 1; $finger <= 11; $finger++){
+    if($finger === 8){
+        continue;//次のループへ
+    }else{
+        echo "不思議な指が" . $finger . "本あります！<br>";
+    }
+}
+for ($i = 1; $i <= 10; $i++) {
+    if ($i % 2 == 0) {
+        continue;//次のループへ
+    } else {
+        echo $i . "<br>";
+    }
+}
+//追加
+$fruits = ['りんご', 'バナナ'];
+$fruits[] ='みかん';
+$fruits[] = 'ぶどう';
+print_r($fruits);//「_r」はarrayの事。
+echo "<br>";
+print $score;//brはできない
+$fruits = ['りんご', 'バナナ', 'みかん'];
+$fruits[1] = 'ぶどう';
+print_r($fruits);
+// 出力: Array ( [0] => りんご [1] => ぶどう [2] => みかん )
+// ぶどうだけ取り出す
+echo $fruits[1]; // 出力: ぶどう
+//サジェストが出なくなったら、ctrl+shift+Rでリロードする。
+//Reload Windowをぶち込むだけでもいい
+//先輩に右のバーにいたaiの野郎が文章打ってくれる機能を教えてもらえました。
+//悪いことを覚えました☆🐇
+// 補完やコメント変換を無効化した場合の戻し方
+// .vscode/settings.json で以下を true / "on" に戻すと再開できる
+// "editor.quickSuggestions": { "comments": true, "strings": true, "other": true }
+// "editor.tabCompletion": "on"
+// "editor.inlineSuggest.enabled": true
+// "editor.acceptSuggestionOnEnter": "on"
+// それでも戻らないときは、Ctrl+Shift+P → Developer: Reload Window
+unset($fruits[1]);
+print_r($fruits);
+//インデックスを詰め直す
+$fruits = array_values($fruits);
+
+
 ?>
