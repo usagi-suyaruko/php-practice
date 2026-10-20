@@ -315,9 +315,77 @@ echo $fruits[1]; // 出力: ぶどう
 // "editor.acceptSuggestionOnEnter": "on"
 // それでも戻らないときは、Ctrl+Shift+P → Developer: Reload Window
 unset($fruits[1]);
-print_r($fruits);
+echo "<br>";
+print_r($fruits);//Array ( [0] => りんご [2] => みかん )
 //インデックスを詰め直す
 $fruits = array_values($fruits);
+echo "<br>";
+print_r($fruits);//Array ( [0] => りんご [1] => みかん )
+$user = ['name' => '山田', 'age' => 30];
+print_r($user);
+var_dump($user);//array(2) { ["name"]=> string(6) "山田" ["age"]=> int(30) }
+//int は整数10進数からなるもので()内に書かれているが、stringは文字列のbit数でカウントしている。
+//文字で数える場合mb_strlen()で文字数を数えよう。この辺りに関して、例えば初代ポケモンのメッセージ欄の文字数制限なんかを処理するときとかに必要になるんだろう。
+// まあ。[]内に文字列の指定を来ておくくらいでもいい気がするし、多分ソッチのほうが昔は行われていたんだろうけど。実際処理自体は同じだから、多分関数として処理されているかどうかの問題なのかな。あとは使用言語によって変化がありそう。
+echo "<br>要素の数は" . count($fruits) . "<br>";//要素数は2
+if (in_array('バナナ', $fruits)) {
+    echo "<br>バナナあります!<br>";
+}
+//in_arrayは、配列の中に指定した値があるかどうかを調べる関数です。trueかfalseで返す。それをifで使って判断したって感じだね
+//in_array() - 値が存在するか確認
 
+array_push($fruits, 'ぶどう', 'みかん');
+//要素の追加です。場所は末尾。[3]が最大なら[4]まで
+print_r($fruits);
+$fruits1 = ['りんご', 'バナナ'];
+$fruits2 = ['みかん', 'ぶどう'];
+$all_fruits = array_merge($fruits1, $fruits2);//マージは結合。ブレンダーでもやったわねarrayはなんていえばいいんだろ。配列かな。
+print_r($all_fruits);
+if (array_key_exists('email', $user)) {
+    echo "<br>メールアドレスがあります。<br>";
+}else{
+    echo "<br>メールアドレスはありません。<br>";
+}
+//array_key_exists() - 配列のキーが存在するか確認
+//出力:メールアドレスが有りません
+
+
+
+/*
+まとめ
+
+[配列関数]に関して。
+
+・count() - 要素数を数える。
+・in_array() - 値が存在するか確認。
+・array_push() - 末尾に要素を追加。
+・array_merge() - 配列を結合。
+・array_key_exists() - 配列のキーが存在するか確認。
+・array_values() - インデックスを詰め直す。
+
+・print_r() - 見やすく表示
+・var_dump() - 型情報も表示
+・mb_strlen() - 文字数を数える(日本語などマルチバイト文字に対応)エクセルで言うところのLEN関数みたいなもん。bit側は一体何に使うのか。容量の確認？いや、数字にはそのまま使えるのか
+
+*/
+
+//時速の計算
+echo "<br>";
+$distance = 12; // 距離（km）
+$speed = 25; // 時速の計算
+echo "時速: " . $speed . " km/h";
+//信号待ちなどの予備時間を足します。
+$prep_time = 10; // 予備時間（分）
+//時間の算出
+$time = $distance / $speed + $prep_time / 60; // 時間（時間単位）
+//時間単位の計算roundup(時：分)
+if($time / 1 <1){
+    $time_hour = 0;}else{
+        $time_hour = (int)($time / 1);
+}
+$time_minute = (int)(($time - $time_hour) *60);
+//時間の表示
+echo "<br>所要時間: " . $time_hour . " 時間 " . $time_minute . " 分<br>";
+//Cはscanf_s("%d", &変数名)とprintf、int宣言と、double宣言。後はint型に固定するやり方。に変更するだけで大枠は同じ。強いて言えばPHPがルーズな感じ
 
 ?>
