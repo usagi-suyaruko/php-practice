@@ -350,7 +350,6 @@ if (array_key_exists('email', $user)) {
 //出力:メールアドレスが有りません
 
 
-
 /*
 まとめ
 

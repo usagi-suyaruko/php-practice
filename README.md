@@ -4,7 +4,7 @@
 - coachtechの教材下において作成したものになります。
 
 ## 使用技術
-- PHP ver. 8.4.12
+- PHP ver. 8.4.27
 - html
 - css
 
