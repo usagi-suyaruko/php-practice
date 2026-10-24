@@ -50,6 +50,14 @@ $score_other =0;
         $total_score += $value['score'];
         }
 }
+//foreach について。これに関しては、foreach{変数(配列) as 添字 => 要素}｛｝といった具合に書くことができる。これは
+//foreach($rabbit as $number => $value)$rabbit 以外は自分で書いたものです。
+/* rabbit = array()
+ * rabbit[0] = "a";
+ * rabbit[2] = "b";
+ * rabbit[5] = "c";
+ * となり、これをforeachだけで使うと[0]=>0[2]=>1[5]=>2といった感じに再定義される。そうした値に関してはforeach内で表示された時に$numberは0からだと「0」と記載され、[1]なら2。$value[0]なら[a]として表示される。1ならｂ
+ */
 ?>
 <h2><b>【統計情報】</h2>
 <br>
@@ -75,6 +83,8 @@ function name_count_changer($a, $b, $c)
     }
 }
     これnull continueでええやん*/
+    /*私のかんがえる関数は */
+
 ?>
 </body>
 </html>
