@@ -1,5 +1,12 @@
 {
-  "cSpell.words": ["coachtech", "fastcgi", "MBPC", "scanf", "Turu"],
+  "cSpell.words": [
+    "coachtech",
+    "fastcgi",
+    "MBPC",
+    "scanf",
+    "totaltime",
+    "Turu"
+  ],
   "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
   "editor.quickSuggestions": {
     "comments": true,
@@ -8,5 +15,12 @@
   },
   "editor.tabCompletion": "on",
   "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "php": true
+  },
   "editor.acceptSuggestionOnEnter": "on"
 }
