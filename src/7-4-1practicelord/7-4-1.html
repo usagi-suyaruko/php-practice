@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- process.php と言うファイルに、データを送信するフォームです。 -->
+    <form action="process.php" method="post">
+            <!-- ユーザ入力部分 -->
+        <label for="username">お名前:</label>
+        <input type="text" id="username" name="username" placeholder="お名前を入力してください">
+        <!-- 送信ボタン -->
+        <button type="submit">送信</button>
+    </form>
+    <!-- getとpostに関しては前者が、URLにデータを付加して送信するのに対し、後者はHTTPのボディ部分にデータを送信します。 -->
+    <!-- 後者のほうがPWなどの機密情報を扱うのに向いており、PW入力欄が別ページで表示されるのはこのためと思われる。 -->
+
+</body>
+</html>
