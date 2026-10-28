@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="jp">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品一覧</title>
 </head>
+
 <body>
     <h1>商品一覧</h1>
     <ul>
@@ -14,4 +16,5 @@
         <!--idはforeachとか、クラス用nameはそのままだね。名詞としての登録。？の意味はifじゃないし多分この情報は？っていう意味でURLに付与しているだけ。-->
     </ul>
 </body>
+
 </html>

@@ -15,6 +15,6 @@ $name = $_GET["name"];
     <h1>商品詳細</h1>
     <p>商品ID:<?php echo htmlspecialchars($id,ENT_QUOTES,'UTF-8'); ?></p>
     <p>商品名:<?php echo htmlspecialchars($name,ENT_QUOTES,'UTF-8'); ?></p>
-    <><a href="list.php">一覧に戻る</a></>
+    <p><a href="list.php">一覧に戻る</a></p>
 </body>
 </html>
