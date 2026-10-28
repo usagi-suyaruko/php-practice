@@ -16,7 +16,7 @@ class User
     {
         return "こんにちは、私は" . $this->name . "です。" . $this->age . "歳です。";
     }
-    public function isAdult(){
+    public function isAdult()/*[:bool]書いてもいいね。*/{
         if ($this->age >= 18) {
             return true;}else{
             return false;
